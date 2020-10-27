@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet"  type="text/css"  href="{{ url_for('static',filename='css/calendrier.css') }}" />
+<body>
+    <form action='/chatbot' method="GET">
+        <button class='chatbot'>Chatbot</button>
+        <div class='json'>
+          {% for day in week : %}
+          <ul class={{day}}>
+            <p class="day">{{day}}</p>
+            {% set counter = loop.index %}
+            {% for elem in json : %}
+            {% if elem['jour'] == counter %}
+            {%set size = elem['pages']*0.1%}
+            <p class="doc" style="height = '{{size}}'">
+              <li class="doc"> <B>Document :</B> {{elem['titre']}} </li>
+              <li class="doc"> <B>Utilisateur :</B> {{elem['utilisateur']}} </li>
+              <li class="doc"> <B>Start :</B> {{elem['start']}} </li>
+              <li class="doc"> <B>End :</B> {{elem['end']}} </li>
+              <li class="doc"> <B>Pages :</B> {{elem['pages']}} </li>
+            </p>
+            
+            {% endif %}
+            {% endfor %}
+          </ul>
+          {% endfor %}
+        </div>
+    </form>
+
+</body>
+

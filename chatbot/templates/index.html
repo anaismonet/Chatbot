@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>PrinterBot</title>
+  <link rel="stylesheet"  type="text/css"  href="{{ url_for('static',filename='css/chatBot.css') }}" />
+</head>
+<body>
+  <div class="chat_window">
+    <div class="top_menu">
+      <div>
+        <form action='/login' method='post'>
+          <button class="logout">Logout</button>
+        </form>
+      </div>
+      <div class="title">PrinterBot</div>
+      <div>
+        <form action='/calendrier' method='post'>
+          <button class="calendrier">Calendrier</button>
+        </form>
+      </div>
+    </div>
+    <ul class="messages scrollbar-custom theme1">
+      <li class="resp_msg"> Bonjour {{pseudo}} je suis PrinterBot, que puis-je faire pour vous ? </li>
+      {% if message[0] != "" %}
+      {% for i in range(message|length)  : %}
+      <li class="user_msg"> {{message[i]}} </li>
+      <li class="resp_msg"> {{reponse[i]}}</li>
+      {% endfor %}
+      {% else %}
+      {% endif %}
+    </ul>
+    <div class="bottom_wrapper clearfix">
+      <form class="form"  action='/chatbot' method="post">
+        <div class="message_input_wrapper">
+          <input class="message_input" name="message_input" placeholder="Type your message here..." />
+        </div>
+        <div class="send_message">
+          <div class="icon" style="display:none"></div>
+          <button class="text">Send</div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="message_template">
+    <li class="message">
+      <div class="text_wrapper feedback" id="wrapper" style="width: 0px; opacity: 0;">
+        <div class="intent-info"  style="display: none">
+          <form id="question">
+            <p>Feedback Question</p>
+          <span class="intent">intent name</span>
+            <div class="feedback-btn-container">
+              <span class="feedback_yes btn green">✓</span>
+              <span class="feedback_no btn red">X</span>
+            </div>
+            </form>
+          </form>
+        </div>
+      </div>
+      <div class="avatar"></div>
+      <div class="text_wrapper">
+        <div class="text"></div>
+        <div class="message-time"></div>
+      </div>
+    </li>
+  </div>
+  <div id="checkTemplate" style="display:none">
+    <div id ="checkYes" style="display:none">
+      <svg class="checkmark positive" id="check-1" viewBox="0 0 52 52"><circle class="circle positive" cx="26" cy="26" r="25" fill="none"/><path class="check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg> </div>
+      <div id ="checkNo" style="display:none">
+      <svg class="checkmark negative" id="check-1" viewBox="0 0 52 52"><circle class="circle negative" cx="26" cy="26" r="25" fill="none"/><path class="check" fill="none" d="M13 13 L38 38 M13 38 L38 13"/></svg> </div>
+  </div>
+</body>
+
+
+</html>

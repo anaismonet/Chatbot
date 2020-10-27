@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<body>
+
+    <link rel="icon" type="image/png" href="{{ url_for('static',filename='Login_v10/images/icons/favicon.ico') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/vendor/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}" >
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/vendor/animate/animate.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/vendor/css-hamburgers/hamburgers.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/vendor/animsition/css/animsition.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/vendor/select2/select2.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/vendor/daterangepicker/daterangepicker.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Login_v10/css/main.css') }}">
+
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+
+                <form method="POST" action="/login">
+				<form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-51">
+						Login
+					</span>
+
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Pseudo is required">
+						<input class="input100" type="text" name="pseudo" placeholder="Pseudo">
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-t-3 p-b-24">
+						
+						<div>
+							<a href="{{ url_for('auth.signup') }}" class="txt1">
+								New member
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+                </form>
+            </form>
+
+			</div>
+		</div>
+	</div>
+</body>
